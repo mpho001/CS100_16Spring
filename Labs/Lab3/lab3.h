@@ -41,7 +41,7 @@ class Op: public Base
 	double operand;
     public:
 	Op(double o)
-	:Base(), operand(0) {}
+	:Base(), operand(o) {}
 	double evaluate()
 	{
 	    return operand;
