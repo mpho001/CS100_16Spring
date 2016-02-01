@@ -35,4 +35,15 @@ class TwoOperand : public Base
 		TwoOperand() {};
 		virtual double evaluate() {return 0;};
 };
+
+class Sqr : public OneOperand
+{
+	public:
+		Sqr(Base* n) {midOp = n;};
+		virtual double evaluate()
+		{
+			return midOp->evaluate() * midOp->evaluate();
+		};
+};
+
 #endif
