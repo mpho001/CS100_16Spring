@@ -19,5 +19,20 @@ class Op : public Base
 		virtual double evaluate() {return operand};
 };
 
+class OneOperand : public Base
+{
+	public:
+		Base* midOp;
+		OneOperand() {};
+		virtual double evaluate() {return 0;};
+};
 
+class TwoOperand : public Base
+{
+	public:
+		Base* leftOp;
+		Base* rightOp;
+		TwoOperand() {};
+		virtual double evaluate() {return 0;};
+};
 #endif
