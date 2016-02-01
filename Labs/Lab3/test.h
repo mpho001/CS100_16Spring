@@ -10,4 +10,14 @@ class Base
 		virtual void evaluate() = 0;
 };
 
+class Op : public Base
+{
+	private:
+		double operand;
+	public:
+		Op(double x):operand(x) {};
+		virtual double evaluate() {return operand};
+};
+
+
 #endif
