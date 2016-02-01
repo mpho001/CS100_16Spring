@@ -46,4 +46,44 @@ class Sqr : public OneOperand
 		};
 };
 
+class Add : public TwoOperand
+{
+	public:
+		Add(Base* l, Base* r) {leftOp = l; rightOp = r;};
+		virtual double evaluate()
+		{
+			return leftOp->evaluate() + rightOp->evaluate();
+		};
+};
+
+class Sub : public TwoOperand
+{
+	public:
+		Sub(Base* l, Base* r) {leftOp = l; rightOp = r;};
+		virtual double evaluate()
+		{
+			return leftOp->evaluate() - rightOp->evaluate();
+		};
+};
+
+class Mult : public TwoOperand
+{
+	public:
+		Mult(Base* l, Base* r) {leftOp = l; rightOp = r;};
+		virtual double evaluate()
+		{
+			return leftOp->evaluate() * rightOp->evaluate();
+		};
+};
+
+class Div : public TwoOperand
+{
+	public:
+		Div(Base* l, Base* r) {leftOp = l; rightOp = r;};
+		virtual double evaluate()
+		{
+			return leftOp->evaluate() / rightOp->evaluate();
+		};
+};
+
 #endif
