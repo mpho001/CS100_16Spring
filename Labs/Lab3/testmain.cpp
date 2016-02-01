@@ -1,4 +1,4 @@
-#include "test.h"
+#include "test.h" // make sure to change this when you change the file name
 #include <iostream>
 
 using namespace std;
