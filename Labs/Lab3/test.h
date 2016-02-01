@@ -7,7 +7,7 @@ class Base
 {
 	public:
 		Base() {};
-		virtual void evaluate() = 0;
+		virtual double evaluate() = 0;
 };
 
 class Op : public Base
@@ -16,7 +16,7 @@ class Op : public Base
 		double operand;
 	public:
 		Op(double x):operand(x) {};
-		virtual double evaluate() {return operand};
+		virtual double evaluate() {return operand;};
 };
 
 class OneOperand : public Base
