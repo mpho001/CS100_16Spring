@@ -4,6 +4,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
+#include <iterator>
 #include <algorithm>
 #include "sort.h"
 #include "test.h"
@@ -32,7 +33,7 @@ class Container {
         virtual int size() = 0;
 };
 
-class vecContainer {
+class vecContainer : public Container {
     private:
         vector<Base*> baseVec;
 
@@ -50,9 +51,9 @@ class vecContainer {
 
         void print() {
             // does below line even work
-            int sz = size();
-            for (int i = 0; i < sz; ++i) {
-                cout << "something" << " ";
+            for(int i = 0; i < baseVec.size(); i++)
+            {
+            	cout << baseVec.at(i)->evaluate();
             }
         }
 
@@ -61,7 +62,7 @@ class vecContainer {
         }
 
         void swap(int i, int j) {
-            swap(baseVec.at(i), baseVec.at(j);
+            iter_swap(baseVec.begin() + i, baseVec.begin() + j);
         }
 
         Base* at(int i) {
@@ -70,7 +71,7 @@ class vecContainer {
 
 };
 
-class listContainer {
+class listContainer : public Container {
     private:
         list<Base*> baseList;
 
@@ -86,9 +87,10 @@ class listContainer {
         }
 
         void print() {
-            int sz = size();
-            for (int i = 0; i < sz; ++i)
-                cout << "stuffs" << " ";
+            for(int i = 0; i < baseList.size(); i++)
+            {
+            	cout << baseList.at(i)->evaluate();
+			}
         }
 
         void sort() {
@@ -100,7 +102,11 @@ class listContainer {
         }
 
         Base *at(int i) {
-            cout << "so like, review lists and iterators" << endl;
+			if(baseList.size() > i)
+			{
+				list<Base*> it;
+				advance(it, i);
+			}
         }
 
  
