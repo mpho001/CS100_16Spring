@@ -38,5 +38,12 @@ int main()
     myVector.swap(0,1);
     myVector.print(); cout << endl;
 
+    // testing bubbleeeee
+    cout << "bubble sort: ";
+    bubbleSort bubble;
+    myVector.set_sort_function(&bubble);
+    myVector.sort();
+    myVector.print(); cout << endl;
+
 	return 0;
 }

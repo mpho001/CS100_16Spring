@@ -23,7 +23,9 @@ class Container {
         Container(Sort* function) : sort_function(function) {};
 
         // Non virtual functions
-        void set_sort_function(Sort* sort_function);
+        void set_sort_function(Sort* sort_function) {
+            this->sort_function = sort_function;
+        }
 
         // Pure virtual functions
         virtual void add_element(Base* element) = 0;
@@ -33,6 +35,8 @@ class Container {
         virtual Base* at(int i) = 0;
         virtual int size() = 0;
 };
+
+#include "sort.h"
 
 class vecContainer : public Container {
     private:
@@ -60,7 +64,7 @@ class vecContainer : public Container {
         }
 
         void sort() {
-            cout << "FIXMEEEE" << endl;
+            sort_function->sort(this);
         }
 
         void swap(int i, int j) {
@@ -92,7 +96,7 @@ class listContainer : public Container {
             list<Base*>::iterator it;
             for(it = baseList.begin(); it != baseList.end(); ++it)
             {
-            //	cout << *it->evaluate() << " ";
+            	// cout << &it->evaluate() << " ";
 			}
        }
 
