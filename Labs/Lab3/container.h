@@ -6,11 +6,12 @@
 #include <list>
 #include <iterator>
 #include <algorithm>
-#include "sort.h"
+//#include "sort.h"
 #include "test.h"
 
 using namespace std;
 
+class Sort;
 
 class Container {
     protected:
@@ -91,15 +92,15 @@ class listContainer : public Container {
             {
             	cout << baseList.at(i)->evaluate();
 			}
-        }
+       }
 
         void sort() {
             cout << "fix this shit" << endl;
         }
 
-        void swap(int i, int j) {
+       void swap(int i, int j) {
             cout << "fix as well" << endl;
-        }
+       }
 
         Base *at(int i) {
 			if(baseList.size() > i)
@@ -107,7 +108,7 @@ class listContainer : public Container {
 				list<Base*> it;
 				advance(it, i);
 			}
-        }
+       }
 
  
 };

@@ -1,5 +1,7 @@
 #include "test.h" // make sure to change this when you change the file name
 #include <iostream>
+#include "container.h"
+#include "sort.h"
 
 using namespace std;
 
@@ -22,6 +24,10 @@ int main()
     Div d1(&sq1, &op1);
     
     cout << "Test Cast 2: " <<  d1.evaluate() << endl;
+
+    cout << "Testing vector container " << endl;
+ //   vecContainer myVector();
+
      
 
 	return 0;
