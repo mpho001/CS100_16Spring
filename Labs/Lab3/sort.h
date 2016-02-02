@@ -4,20 +4,23 @@
 #include <iostream>
 #include <vector>
 #include <list>
-#include "Container.h"
 
-using namespace std
+#include "test.h"
+
+using namespace std;
 
 class Container;
 
 class Sort {
     public:
         // Constructors
-        Sort();
+        Sort(){};
 
         // Pure Virtual Functions
         virtual void sort(Container* container) = 0;
 };
+
+#include "container.h"
 
 class bubbleSort : public Sort {
     public:
@@ -61,8 +64,6 @@ class selectionSort : public Sort {
                 }
             }
         }
-
-
 
 };
 
