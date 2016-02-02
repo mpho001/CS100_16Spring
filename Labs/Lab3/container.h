@@ -102,10 +102,10 @@ class listContainer : public Container {
             cout << "fix as well" << endl;
        }
 
-        Base *at(int i) {
+        Base* at(int i) {
 			if(baseList.size() > i)
 			{
-				list<Base*> it;
+				list<Base*>::iterator it = baseList.begin();
 				advance(it, i);
 			}
        }
