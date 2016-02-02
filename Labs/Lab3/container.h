@@ -52,9 +52,10 @@ class vecContainer : public Container {
 
         void print() {
             // does below line even work
-            for(int i = 0; i < baseVec.size(); i++)
+            int sz = baseVec.size();
+            for(int i = 0; i < sz; i++)
             {
-            	cout << baseVec.at(i)->evaluate();
+            	cout << baseVec.at(i)->evaluate() << " ";
             }
         }
 
@@ -88,9 +89,10 @@ class listContainer : public Container {
         }
 
         void print() {
-            for(int i = 0; i < baseList.size(); i++)
+            list<Base*>::iterator it;
+            for(it = baseList.begin(); it != baseList.end(); ++it)
             {
-            	cout << baseList.at(i)->evaluate();
+            //	cout << *it->evaluate() << " ";
 			}
        }
 
@@ -103,10 +105,12 @@ class listContainer : public Container {
        }
 
         Base* at(int i) {
-			if(baseList.size() > i)
+            int sz = baseList.size();
+			if(sz > i)
 			{
 				list<Base*>::iterator it = baseList.begin();
 				advance(it, i);
+                return *it;
 			}
        }
 

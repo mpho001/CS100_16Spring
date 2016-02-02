@@ -25,10 +25,18 @@ int main()
     
     cout << "Test Cast 2: " <<  d1.evaluate() << endl;
 
+    //////////////////////////////////////////////////
     cout << "Testing vector container " << endl;
- //   vecContainer myVector();
+    vecContainer myVector;
 
-     
+    myVector.add_element(&d1);
+    myVector.add_element(&s1);
+    int sz = myVector.size();
+    cout << "vector size: " << sz << endl;
+    myVector.print(); cout << endl;
+    cout << "swap results: ";
+    myVector.swap(0,1);
+    myVector.print(); cout << endl;
 
 	return 0;
 }
