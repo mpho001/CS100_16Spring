@@ -96,16 +96,27 @@ class listContainer : public Container {
             list<Base*>::iterator it;
             for(it = baseList.begin(); it != baseList.end(); ++it)
             {
-            	// cout << &it->evaluate() << " ";
+            	 cout << (*it)->evaluate() << " ";
 			}
        }
 
         void sort() {
-            cout << "fix this shit" << endl;
+            sort_function->sort(this);
         }
 
        void swap(int i, int j) {
-            cout << "fix as well" << endl;
+			//not sure if this works yet
+			list<Base*>::iterator it1 = baseList.begin();
+			for(int x = 0; x < i; x++)
+			{
+				it1++;
+			}
+			list<Base*>::iterator it2 = baseList.begin();
+			for(int y = 0; y < j; y++)
+			{
+				it2++;
+			}
+			iter_swap(it1, it2);
        }
 
         Base* at(int i) {
