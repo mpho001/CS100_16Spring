@@ -45,5 +45,24 @@ int main()
     myVector.sort();
     myVector.print(); cout << endl;
 
+    /////////////////////////////////////////////////////
+    cout << "Testing list container " << endl;
+    listContainer myList;
+    myList.add_element(&d1);
+    myList.add_element(&sq1);
+    myList.add_element(&d1);
+    myList.add_element(&d1);
+    cout << "list size: " << myList.size() << endl;
+    myList.print(); cout << endl;
+    // myList.swap(0, 1);
+    myList.print(); cout << endl;
+
+    // testing select sort
+    cout << "select sort: ";
+    selectionSort select;
+    myList.set_sort_function(&select);
+    myList.sort();
+    myList.print(); cout << endl;
+
 	return 0;
 }

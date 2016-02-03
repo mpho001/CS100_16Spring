@@ -6,6 +6,7 @@
 #include <list>
 #include <iterator>
 #include <algorithm>
+#include <stdlib.h>
 //#include "sort.h"
 #include "test.h"
 
@@ -127,6 +128,10 @@ class listContainer : public Container {
 				advance(it, i);
                 return *it;
 			}
+            else {
+                cout << "Out of Range" << endl;
+                exit(0);
+            }
        }
 
  
