@@ -28,14 +28,12 @@ class bubbleSort : public Sort {
 
         void sort(Container* container) {
             bool swapped = true;
-            int j = 0;
             int sz = container->size();
 
             while(swapped) {
                 swapped = false;
-                ++j;
-                for (int i = 0; i < sz - j; i++) {
-                    if ( container->at(i) > container->at(i + 1) ) {
+                for (int i = 0; i < sz - 1; i++) {
+                    if ( container->at(i)->evaluate() > container->at(i+1)->evaluate()) {
                         container->swap(i, i+1);
                         swapped = true;
                     }
@@ -54,7 +52,7 @@ class selectionSort : public Sort {
             for (i = 0; i < sz - 1; i++) {
                 minIndex = i;
                 for (j = i + 1; j < sz; ++j) {
-                    if (container->at(j) < container->at(minIndex) ) {
+                    if (container->at(j)->evaluate() < container->at(minIndex)->evaluate() ) {
                         minIndex = j;
                     }
                 }
