@@ -53,7 +53,7 @@ void Menu::undo() {
 
 void Menu::redo() {
     // if at rightmost command
-    if (history_index == (int) history.size() - 1) {
+    if (history.size() == 0 || history_index == (int) history.size() - 1) {
         return;
     }
 
