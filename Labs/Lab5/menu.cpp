@@ -17,7 +17,7 @@ void Menu::execute() {
 
 // returns true if history was primed with single op instruction 
 bool Menu::initialized() {
-    
+   return true; 
 }
 
 // adds command in appropriate position
@@ -28,14 +28,15 @@ void Menu::add_command(Command* cmd) {
     }
 
     ++history_index;
-    history.at(history_index) == cmd;
+    history.at(history_index) = cmd;
 }
 
 // returns command based on history_index position
 Command* Menu::get_command() {
     if (history.size() == 0) {
         // there's no command to get
-        return;
+        cout << "there's no command" << endl;
+        exit(0);
     }
 
     return history.at(history_index);

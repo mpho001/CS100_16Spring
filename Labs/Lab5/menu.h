@@ -2,6 +2,7 @@
 #define __MENU_CLASS__
 
 #include <iostream>
+#include <vector>
 #include "command.h"
 
 using namespace std;
@@ -12,7 +13,7 @@ class Menu {
 		vector<Command*> history;
 
 	public:
-		Menu(); 
+		Menu() {} 
 		void execute();
 			//Prints the current commands value (based on history_index),
             //if no commands exist
