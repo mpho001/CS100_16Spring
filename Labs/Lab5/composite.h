@@ -33,11 +33,10 @@ class Op: public Base {
         };
 };
 
-//Composite Base Classes
 class Operator: public Base {
-    protected:
-        Base* left, *right;
-    public:
+	protected:
+		Base* left, *right;
+	public:
         Operator() : Base(){ };
         Operator(Base* l, Base* r) : left(l), right(r){  };
 
