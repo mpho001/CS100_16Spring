@@ -29,7 +29,7 @@ class AddCommand : public Command {
 	//AddCommand Code Here
 	public:
 		AddCommand(Base* cmd, double val) {
-			root = new Add(cmd, new Op(val);
+			root = new Add(cmd, new Op(val));
 		}
 };
 
