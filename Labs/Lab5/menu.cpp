@@ -9,12 +9,15 @@ void Menu::execute() {
     if (history_index == 0) {
         // no commands exist
         cout << "0" << endl;
+        return;
     }
+    
+    history.at(history_index)->execute(); 
 }
 
 // returns true if history was primed with single op instruction 
 bool Menu::initialized() {
-
+    
 }
 
 // adds command in appropriate position
