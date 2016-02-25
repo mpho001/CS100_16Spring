@@ -13,7 +13,9 @@ class Menu {
 		vector<Command*> history;
 
 	public:
-		Menu() {}; 
+		Menu() {
+			history_index = 0;	
+		}; 
 		void execute();
 			//Prints the current commands value (based on history_index),
             //if no commands exist
