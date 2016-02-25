@@ -3,32 +3,48 @@
 
 using namespace std;
 
+Menu::Menu() {
+    history_index = -1;
+}
+
 // prints current commands value based on his_index
 // if no commands, print 0
+
 void Menu::execute() {
-    if (history_index == 0) {
+    if (history.size() == 0 || history_index == -1) {
         // no commands exist
-        cout << "0" << endl;
+        cout << "no commands exist: 0" << endl;
         return;
     }
     
-    history.at(history_index)->execute(); 
+    cout << history.at(history_index)->execute() << endl;
 }
 
 // returns true if history was primed with single op instruction 
 bool Menu::initialized() {
-   return true; 
+   if (history.size() > 0) {
+      return true;
+   }
+   return false; 
 }
 
 // adds command in appropriate position
 void Menu::add_command(Command* cmd) {
-    if (history_index == (int) history.size() - 1) {
+    if (history.size() == 0) {
         history.push_back(cmd);
-        return;
+        ++history_index;
+        cout << "index: " << history_index << endl;
     }
 
-    ++history_index;
-    history.at(history_index) = cmd;
+    else if (history_index == (int) history.size() - 1) {
+        history.push_back(cmd);
+        ++history_index;
+    }
+    
+    else {
+        ++history_index;
+        history.at(history_index) = cmd;
+    }
 }
 
 // returns command based on history_index position
@@ -43,8 +59,9 @@ Command* Menu::get_command() {
 }
 
 void Menu::undo() {
-    // if at leftmost command
-    if (history.size() == 0 || history_index == 0) {
+    // if at leftmost command or are no commands
+    if (history.size() == 0 || history_index == -1) {
+        cout << "Can't undo" << endl;
         return;
     }
     
@@ -52,8 +69,9 @@ void Menu::undo() {
 }
 
 void Menu::redo() {
-    // if at rightmost command
+    // if at rightmost command or there are no commands
     if (history.size() == 0 || history_index == (int) history.size() - 1) {
+        cout << "Can't redo" << endl;
         return;
     }
 
