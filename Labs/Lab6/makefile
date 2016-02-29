@@ -1,6 +1,6 @@
 CC = g++
 CC_FLAGS = -Wall -ansi
-EXEC = calculator
+EXEC = iterator
 SOURCES = $(wildcard *.cpp)
 OBJECTS = $(SOURCES:.cpp=.o)
 
