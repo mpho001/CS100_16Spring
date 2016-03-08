@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include "composite.h"
-
+#include "iterator.h"
 using namespace std;
 
 int main() {
@@ -9,10 +9,16 @@ int main() {
 	Op* op3 = new Op(3);
 	Op* op4 = new Op(4);
 	Op* op2 = new Op(2);
+	Op* op5 = new Op(5);
+	Op* op10 = new Op(10);
 	Add* add = new Add(op3, op4);
 	Sqr* sqr = new Sqr(op2);
 	Sub* sub = new Sub(add, sqr);
-	Root* root = new Root(sub);
+	Sub* sub2 = new Sub(sub, sqr);
+	Add* add2 = new Add(sub2, op10);
+	Add* add3 = new Add(add2, op5);
+
+	Root* root = new Root(add3);
 
 	cout << "--- PreOrder Iteration ---" << endl;
 	PreOrderIterator* pre_itr = new PreOrderIterator(root);
@@ -20,4 +26,13 @@ int main() {
 		pre_itr->current()->print();
 		cout << endl;
 	}
+
+	Root* root2 = new Root(sub2);
+	cout << "--- PreOrder Iteration #2 ---" << endl;
+	PreOrderIterator* pre_itr2 = new PreOrderIterator(root2);
+	for(pre_itr2->first(); !pre_itr2->is_done(); pre_itr2->next()) {
+		pre_itr2->current()->print();
+		cout << endl;
+	}
+
 };

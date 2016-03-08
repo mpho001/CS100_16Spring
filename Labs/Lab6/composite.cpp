@@ -1,4 +1,5 @@
 #include "composite.h"
+#include "iterator.h"
 
 //--------------------------------------------------------------------------
 // Op Class
@@ -76,17 +77,3 @@ Root::Root(Base* child) : UnaryOperator(child) { };
 
 void Root::print() { cout << "ROOT"; }
 double Root::evaluate() { return this->child->evaluate(); };
-
-
-//////Iterators and Shit/////
-// Operator Iterator
-OperatorIterator::OperatorIterator(Base* ptr) : Iterator(ptr) {}
-
-void OperatorIterator::first() { current_ptr = self_ptr->get_left(); }
-void OperatorIterator::next() {
-   if (current_ptr == self_ptr->get_left()) {
-       // something
-   }
-}
-
-
