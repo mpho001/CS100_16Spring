@@ -149,7 +149,7 @@ class OperatorIterator : public Iterator {
 
 class UnaryIterator : public Iterator {
      public:
-        UnaryIterator(Base* ptr)
+        UnaryIterator(Base* ptr);
         void first();
         void next();
         bool is_done();
