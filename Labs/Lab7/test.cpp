@@ -21,26 +21,28 @@ int main() {
 
 	Root* root = new Root(add3);
 
-	cout << "--- PreOrder Iteration ---" << endl;
+	// cout << "--- PreOrder Iteration ---" << endl;
+    cout << "--- ROUND 1 ---" << endl;
 	PreOrderIterator* pre_itr = new PreOrderIterator(root);
     Visitor* visit = new PrintVisitor;
 	for(pre_itr->first(); !pre_itr->is_done(); pre_itr->next()) {
-		pre_itr->current()->print();
+		// pre_itr->current()->print();
         pre_itr->current()->accept(visit);
-		cout << endl;
+		// cout << endl;
 	}
 
     cout << "Visited these nodes: ";
     visit->execute();
 
 	Root* root2 = new Root(sub2);
-	cout << "--- PreOrder Iteration #2 ---" << endl;
+	// cout << "--- PreOrder Iteration #2 ---" << endl;
+    cout << "--- ROUND 2 ---" << endl;
 	PreOrderIterator* pre_itr2 = new PreOrderIterator(root2);
     Visitor* visit2 = new PrintVisitor;
 	for(pre_itr2->first(); !pre_itr2->is_done(); pre_itr2->next()) {
-		pre_itr2->current()->print();
+		// pre_itr2->current()->print();
         pre_itr2->current()->accept(visit2);
-		cout << endl;
+		// cout << endl;
 	}
     
     cout << "Visited these nodes: ";
